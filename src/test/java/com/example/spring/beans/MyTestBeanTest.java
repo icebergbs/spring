@@ -1,12 +1,14 @@
 package com.example.spring.beans;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.BeanCurrentlyInCreationException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
 import sun.awt.X11.XMapEvent;
 import sun.awt.motif.X11CNS11643;
 
+import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SuppressWarnings("deprecation")
@@ -55,5 +57,19 @@ class MyTestBeanTest {
 
 
          */
+    }
+
+    @Test
+    public void testCircleByConstructor() throws Throwable {
+        try {
+            BeanFactory bf = new XmlBeanFactory(new ClassPathResource("spring.xml"));
+            MyTestBean bean = (MyTestBean) bf.getBean("testC");
+        }catch (Exception e) {
+            //因为要在创建 testC时抛出
+            Throwable el = e.getCause().getCause().getCause();
+
+            throw el;
+        }
+
     }
 }
