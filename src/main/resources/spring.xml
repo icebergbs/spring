@@ -6,15 +6,15 @@
 
     <bean id="myTestBean" class="com.example.spring.beans.MyTestBean"></bean>
 
-    <bean id="testA" class="com.example.spring.beans.TestA" >
-        <constructor-arg index="0" ref="testB"/>
-    </bean>
-    <bean id="testB" class="com.example.spring.beans.TestB" >
-        <constructor-arg index="0" ref="testC"/>
-    </bean>
-    <bean id="testC" class="com.example.spring.beans.TestC" >
-        <constructor-arg index="0" ref="testA"/>
-    </bean>
+<!--    <bean id="testA" class="com.example.spring.beans.TestA" >-->
+<!--        <constructor-arg index="0" ref="testB"/>-->
+<!--    </bean>-->
+<!--    <bean id="testB" class="com.example.spring.beans.TestB" >-->
+<!--        <constructor-arg index="0" ref="testC"/>-->
+<!--    </bean>-->
+<!--    <bean id="testC" class="com.example.spring.beans.TestC" >-->
+<!--        <constructor-arg index="0" ref="testA"/>-->
+<!--    </bean>-->
 
 
     <bean id="myTestBean1" class="com.example.spring.beans.MyTestBean1" >
@@ -27,4 +27,8 @@
     <bean id="student" class="com.example.spring.beans.Student" />
     <bean id="replacer" class="com.example.spring.beans.Replacer" />
     <bean id="replacer1" class="com.example.spring.beans.Replacer1" />
+
+
+    <bean id="hello" class="com.example.spring.beans.aware.Hello" />
+    <bean id="testAware" class="com.example.spring.beans.aware.TestAware" />
 </beans>

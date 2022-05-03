@@ -1,30 +1,21 @@
 package com.example.spring.beans;
 
+
+import com.example.spring.beans.aware.TestAware;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-
-class MyTestBean1Test {
+public class TestAwareTest {
 
     @Test
     public void testMyBean() {
         BeanFactory bf = new XmlBeanFactory(new ClassPathResource("spring.xml"));
-        MyTestBean1 bean = (MyTestBean1) bf.getBean("myTestBean1");
-        bean.getUserBean().showMe();
-        bean.changedMethod();
-        bean.changedMethod1();
+        TestAware bean = (TestAware) bf.getBean("testAware");
+        bean.testAware();
 
-        /**
-         * 判断简单类型
-         * isSimpleProperty
-         */
-
-        BeanUtils.isSimpleProperty(String.class);
 
     }
 }
